@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Janah ❤️</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+  body{background:#000;color:#fff;display:flex;justify-content:center;align-items:center;min-height:100vh}
+.phone{width:100%;max-width:400px;height:90vh;background:#110011;border-radius:25px;padding:20px;overflow-y:auto;box-shadow:0 0 25px #ff00aa}
+.page{display:none}
+.page.active{display:block;animation:fade 0.6s}
+  @keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+  h1{color:#ff4da6;text-align:center;font-size:20px;margin:15px 0}
+  h2{color:#ff80bf;text-align:center;font-size:17px;margin:10px 0;line-height:1.5}
+.card{background:#1a001a;border:1px solid #ff4da6;border-radius:15px;padding:15px;margin:15px 0;text-align:center}
+  input{width:100%;padding:12px;border-radius:10px;border:1px solid #ff4da6;background:#000;color:#fff;margin:10px 0}
+  button{background:#ff4da6;color:#fff;border:none;padding:12px;border-radius:10px;width:100%;font-size:16px;cursor:pointer;margin-top:8px}
+  button:hover{background:#ff1a8b}
+.btns{display:flex;gap:10px}
+.btns button{flex:1}
+.dots{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none}
+.dot{position:absolute;width:3px;height:3px;background:pink;border-radius:50%;opacity:0.5;animation:float 5s infinite}
+  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-15px)}}
+.gift{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.gift div{background:#ff4da6;border-radius:10px;height:70px;display:flex;align-items:center;justify-content:center;font-size:28px;cursor:pointer;transition:0.3s}
+.gift div:active{transform:scale(0.9)}
+.highlight{background:#ff4da6;color:#000;padding:3px 8px;border-radius:8px;font-weight:bold}
+.msg{color:#ff80bf;margin-top:10px;font-size:14px}
+.giftMsg{color:#ff4da6;font-weight:bold;margin-top:10px;font-size:15px;min-height:25px}
+</style>
+</head>
+<body>
+<div class="dots"></div>
+<div class="phone">
+
+<!-- PAGE 1 -->
+<div class="page active">
+  <h1>🎁 Celebrating 23th July 2026</h1>
+  <div class="card">
+    <h2>Welcome janah!🤗❤️</h2>
+    <p>Kya apni lovely birthday wish ko open Karna chahy gy?</p>
+    <div class="btns">
+      <button onclick="go(1)">Yes</button>
+      <button onclick="showMsg('noMsg1')">No</button>
+    </div>
+    <p id="noMsg1" class="msg"></p>
+  </div>
+</div>
+
+<!-- PAGE 2 -->
+<div class="page">
+  <h1>🔓 Unlock Your Mystery Gift</h1>
+  <div class="card">
+    <p>HINT: Me ap ko piyar se kya bulati hon 🫣</p>
+    <input type="password" id="pass" placeholder="Password likho...">
+    <button onclick="checkPass()">Unlock Now</button>
+    <p id="passMsg" class="msg"></p>
+  </div>
+</div>
+
+<!-- PAGE 3 -->
+<div class="page">
+  <h1>💕 Pehly Kisi ek option pe click karo</h1>
+  <div class="card">
+    <p>phir agy Jany ki ijazat ha 🤭</p>
+    <div class="btns">
+      <button onclick="love1()">I love you</button>
+      <button onclick="love2()">I love you so much Janu Mera bacha 😘</button>
+    </div>
+    <p id="loveMsg" class="msg"></p>
+  </div>
+</div>
+
+<!-- PAGE 4 -->
+<div class="page">
+  <h1>⏰ Our Special Day</h1>
+  <div class="card">
+    <p><span class="highlight">5 May 2024</span> - wo jis din humari pehli dafa bat hoi thi❤️</p>
+    <p>us din se AJ tak ap Meri sab se piyari adat ban gay ha ☺️</p>
+    <button onclick="go(4)">NEXT</button>
+  </div>
+</div>
+
+<!-- PAGE 5 -->
+<div class="page">
+  <h1>🥳 HAPPY BIRTHDAY JANAH 🥳</h1>
+  <div class="card">
+    <h2>Happy 30th birthday JANAH! 😘</h2>
+    <p>AJ hi k din is duniya me sab se piyara or handsome insan Aya tha ALLAH ap ki wo sari khushiyan de Jo ap deserve karty ha lekin mery baghair nahi 😌</p>
+    <p>Or ap jesy ha bilkul perfect ha lekin jesy ap Meri baty manty ha Allah us se Ziyada ap ko Meri baty Manny ki tafeeq ata Kary 🤪 or mery baghair rehna bhot Ziyada mushkil ho ap k liye 🤲🏻</p>
+    <div class="btns">
+      <button onclick="amen1()">🙄</button>
+      <button onclick="amen2()">Ameen</button>
+    </div>
+    <p id="amenMsg" class="msg"></p>
+  </div>
+</div>
+
+<!-- PAGE 6 -->
+<div class="page">
+  <h1>💖 Our Time Together</h1>
+  <div class="card">
+    <p>5 May se le kar ab tak Jo time howa ha:</p>
+    <h2 id="counter">Loading...</h2>
+    <p>Allah esy hi humary piyar me izafa kary🫠☺️</p>
+    <button onclick="go(6)">NEXT</button>
+  </div>
+</div>
+
+<!-- PAGE 7 -->
+<div class="page">
+  <h1>🎁 Mystery Gift Box</h1>
+  <div class="card">
+    <div class="gift">
+      <div onclick="showGift('Cake ap k liye 🎂')">🎂</div>
+      <div onclick="showGift('A virtual hug 🤗')">🤗</div>
+      <div onclick="showGift('A virtual kiss for you 💋')">💋</div>
+    </div>
+    <p id="giftMsg" class="giftMsg"></p>
+    <p style="margin-top:10px">can you give me 1 kiss🫣</p>
+    <div class="btns">
+      <button onclick="kissNo()">No</button>
+      <button onclick="kissYes()">Yes</button>
+    </div>
+    <p id="kissMsg" class="msg"></p>
+  </div>
+</div>
+
+<!-- PAGE 8 -->
+<div class="page">
+  <h1>❤️ Thank You Janah</h1>
+  <div class="card">
+    <h2>Thank you janah Mojh se itna piyar karny k liye Mera itna khiyal rakhny k liye</h2>
+    <p>You are the best husband in the world AND I love you so much 🤗😘❤️</p>
+  </div>
+</div>
+
+</div>
+<script>
+let current = 0;
+const pages = document.querySelectorAll('.page');
+
+for(let i=0;i<25;i++){
+  let d=document.createElement('div');d.className='dot';
+  d.style.left=Math.random()*100+'%';d.style.top=Math.random()*100+'%';
+  d.style.animationDelay=Math.random()*5+'s';document.body.appendChild(d);
+}
+
+function go(n){
+  pages[current].classList.remove('active');
+  current = n;
+  pages[current].classList.add('active');
+  if(n==5) startCounter();
+}
+
+function showMsg(id){
+  document.getElementById(id).innerText = "ap ek bar dekhy itna bura bhi to nahi ha gift 🥺";
+  setTimeout(()=>{document.getElementById(id).innerText=""},3000)
+}
+
+function checkPass(){
+  let v = document.getElementById('pass').value.toLowerCase();
+  if(v.includes('janah')) go(2);
+  else document.getElementById('passMsg').innerText = "Galat hai 🫣 Hint yaad karo"
+}
+
+function love1() {
+  document.getElementById('loveMsg').innerText = "Kya me ap ki Janu nahi hon🥺";
+  setTimeout(()=>{document.getElementById('loveMsg').innerText=""},2000)
+}
+function love2() {
+  document.getElementById('loveMsg').innerText = "chaly ab agy chalty ha ❤️";
+  setTimeout(()=>{go(3)},1500)
+}
+
+function amen1(){
+  document.getElementById('amenMsg').innerText = "jab tak Ameen nahi boly gy agy nahi ja sakty 😌";
+}
+function amen2(){
+  document.getElementById('amenMsg').innerText = "";
+  go(5);
+}
+
+function showGift(text){
+  document.getElementById('giftMsg').innerText = text;
+  setTimeout(()=>{document.getElementById('giftMsg').innerText=""},2500)
+}
+
+function kissNo(){
+  document.getElementById('kissMsg').innerText = "Kya apni Janu ko kiss bhi nahi Kary gy 😢";
+}
+function kissYes(){
+  document.getElementById('kissMsg').innerText = "Awwwww janah 🫣🤭";
+  setTimeout(()=>{go(7)},1500)
+}
+
+function startCounter(){
+  const start = new Date("2024-05-05");
+  setInterval(()=>{
+    let diff = new Date() - start;
+    let d = Math.floor(diff/86400000);
+    let h = Math.floor((diff%86400000)/3600000);
+    let m = Math.floor((diff%3600000)/60000);
+    let s = Math.floor((diff%60000)/1000);
+    document.getElementById('counter').innerText = `${d} Days ${h}h ${m}m ${s}s ❤️`;
+  },1000)
+}
+</script>
+</body>
+</html>
